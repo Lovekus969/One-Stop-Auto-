@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-GB" prefix="og: https://ogp.me/ns#" class="js">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Quality Auto Repair & Collision Services | 1 Stop Auto Shop Brampton</title>
+    <meta name="description" content="Professional auto repair, mechanical services, and collision repair in Brampton. Quality work at affordable prices. Free inspection offer available." />
+    <meta name="robots" content="max-image-preview:large" />
+    <link rel="canonical" href="https://1stopautoshop.ca/" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Variables for consistent theming */
+        :root {
+            --primary: #101010;
+            --secondary: #0bb4aa;
+            --accent: #e63946;
+            --light: #f8f8f8;
+            --dark: #232323;
+            --text: #333333;
+            --text-light: #777777;
+            --white: #ffffff;
+            --shadow: 0 4px 12px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+        }
+        
+        h2 {
+            font-size: 2.2rem;
+        }
+        
+        h3 {
+            font-size: 1.8rem;
+        }
+        
+        p {
+            margin-bottom: 1.5rem;
+        }
+        
+        a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        a:hover {
+            color: var(--primary);
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: var(--secondary);
+            color: var(--white);
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--secondary);
+            color: var(--white);
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        /* Dynamic Background Styles */
+        .dynamic-bg-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .bg-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .bg-slide.active {
+            opacity: 1;
+        }
+        
+        .bg-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.3) 100%);
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: var(--shadow);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        
+        header.scrolled {
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+        
+        .logo img {
+            height: 60px;
+            width: auto;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-menu li {
+            margin: 0 15px;
+        }
+        
+        .nav-menu a {
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 16px;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--secondary);
+        }
+        
+        .header-cta {
+            display: flex;
+            align-items: center;
+        }
+        
+        .phone-number {
+            margin-right: 20px;
+            font-weight: 600;
+            color: var(--dark);
+            white-space: nowrap;
+        }
+        
+        .mobile-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            color: var(--white);
+            padding: 160px 0 100px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            color: var(--white);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        /* Services Section */
+        .services {
+            background-color: var(--light);
+            position: relative;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .service-card:hover .service-image img {
+            transform: scale(1.05);
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-content h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .service-link {
+            display: inline-block;
+            margin-top: 15px;
+            font-weight: 600;
+            color: var(--secondary);
+        }
+        
+        /* Why Choose Us Section */
+        .why-us {
+            background-color: var(--white);
+            position: relative;
+        }
+        
+        .why-us-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .why-us-content h2 {
+            margin-bottom: 20px;
+        }
+        
+        .benefits-list {
+            list-style: none;
+            margin: 25px 0;
+        }
+        
+        .benefits-list li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .benefits-list li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+        
+        .why-us-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            background-color: var(--light);
+            position: relative;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+        
+        .testimonial-card:before {
+            content: '"';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-size: 60px;
+            color: var(--secondary);
+            opacity: 0.2;
+            font-family: serif;
+        }
+        
+        .testimonial-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-text {
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+        
+        .author-role {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            color: var(--white);
+            text-align: center;
+            padding: 80px 0;
+            position: relative;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8));
+            z-index: 1;
+        }
+        
+        .cta-section .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cta-section h2 {
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+        
+        .highlight {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            display: block;
+            margin: 15px 0;
+        }
+        
+        /* Special Offer Section */
+        .special-offer {
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 40px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .special-offer h2 {
+            color: var(--white);
+            margin-bottom: 15px;
+        }
+        
+        .offer-timer {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 20px 0;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 60px 0 30px;
+            position: relative;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+        
+        .footer-contact p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-contact i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+        
+        .footer-hours p {
+            margin-bottom: 8px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .why-us-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-wrap: wrap;
+            }
+            
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                margin-top: 20px;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .nav-menu li {
+                margin: 10px 0;
+            }
+            
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .header-cta {
+                margin-left: auto;
+                margin-right: 15px;
+            }
+            
+            .phone-number {
+                display: none;
+            }
+            
+            .hero {
+                padding: 140px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .section {
+                padding: 60px 0;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+            
+            .highlight {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Dynamic Background -->
+    <div class="dynamic-bg-container">
+        <div class="bg-slide active" style="background-image: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');"></div>
+        <div class="bg-slide" style="background-image: url('https://images.unsplash.com/photo-1549399542-7e82138d0d73?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');"></div>
+        <div class="bg-slide" style="background-image: url('https://images.unsplash.com/photo-1580273916550-e323be2ae537?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');"></div>
+        <div class="bg-slide" style="background-image: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');"></div>
+        <div class="bg-overlay"></div>
+    </div>
+
+    <!-- Header -->
+    <header id="main-header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="https://1stopautoshop.ca/">
+                    <img src="https://1stopautoshop.ca/wp-content/uploads/2023/12/cropped-1-Stop-Logo.jpg" alt="1 Stop Auto Shop">
+                </a>
+            </div>
+            
+            <div class="mobile-toggle">☰</div>
+            
+            <ul class="nav-menu">
+                <li><a href="https://1stopautoshop.ca/">Home</a></li>
+                <li><a href="https://1stopautoshop.ca/?page_id=13">About</a></li>
+                <li><a href="https://1stopautoshop.ca/?page_id=110">Auto Repair</a></li>
+                <li><a href="https://1stopautoshop.ca/?page_id=117">Collision Repair</a></li>
+                <li><a href="https://1stopautoshop.ca/?page_id=14">Contact</a></li>
+            </ul>
+            
+            <div class="header-cta">
+                <div class="phone-number">905 230 3131</div>
+                <a href="https://1stopautoshop.ca/?page_id=14" class="btn">Get Quote</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Quality Auto Repair & Collision Services</h1>
+            <p>1 Stop Auto is committed to providing quality work, reliability, and efficiency in fixing vehicles at very competitive prices.</p>
+            <div class="hero-buttons">
+                <a href="https://1stopautoshop.ca/?page_id=110" class="btn">Our Services</a>
+                <a href="https://1stopautoshop.ca/?page_id=14" class="btn btn-outline">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>Complete auto care solutions under one roof</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://1stopautoshop.ca/wp-content/uploads/2023/12/wewe.jpg" alt="Mechanical Repair">
+                    </div>
+                    <div class="service-content">
+                        <h3>Mechanical & Power-Train Repair</h3>
+                        <p>Expert engine, transmission, and drivetrain services to keep your vehicle running smoothly.</p>
+                        <a href="https://1stopautoshop.ca/?page_id=110" class="service-link">Learn More →</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://1stopautoshop.ca/wp-content/uploads/2023/12/fer.jpg" alt="Tires & Alignment">
+                    </div>
+                    <div class="service-content">
+                        <h3>Tires & Alignment</h3>
+                        <p>Complete tire services, wheel balancing, and precision alignment for optimal performance.</p>
+                        <a href="https://1stopautoshop.ca/?page_id=110" class="service-link">Learn More →</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://1stopautoshop.ca/wp-content/uploads/2023/12/wttq.jpg" alt="Collision Repair">
+                    </div>
+                    <div class="service-content">
+                        <h3>Collision & Auto Body Work</h3>
+                        <p>Professional collision repair, dent removal, and painting services to restore your vehicle's appearance.</p>
+                        <a href="https://1stopautoshop.ca/?page_id=117" class="service-link">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="section why-us">
+        <div class="container why-us-container">
+            <div class="why-us-content">
+                <h2>Why Choose 1 Stop Auto?</h2>
+                <p>We focus on quality work at affordable prices to repair your vehicle with the highest standards of service.</p>
+                
+                <ul class="benefits-list">
+                    <li>Experienced and certified technicians</li>
+                    <li>Competitive pricing with no hidden fees</li>
+                    <li>Both mechanical and collision repair under one roof</li>
+                    <li>Quality parts and materials</li>
+                    <li>Quick turnaround times</li>
+                    <li>Customer satisfaction guarantee</li>
+                </ul>
+                
+                <a href="https://1stopautoshop.ca/?page_id=13" class="btn">Learn More About Us</a>
+            </div>
+            
+            <div class="why-us-image">
+                <img src="https://1stopautoshop.ca/wp-content/uploads/2023/12/alignmentr-1.webp" alt="Our Auto Shop">
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Customers Say</h2>
+                <p>Don't just take our word for it - hear from our satisfied customers</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="testimonial-text">
+                            <p>My car was making noise on front right side for quite sometime. I'm glad that my friend referred me to 1 Stop Auto. They figured out the problem and fixed it. I highly recommend them.</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <img src="https://1stopautoshop.ca/wp-content/uploads/2023/12/QWG.webp" alt="T J">
+                            </div>
+                            <div class="author-info">
+                                <h4>T J</h4>
+                                <span class="author-role">Product Manager</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="testimonial-text">
+                            <p>I bought winter tires and also got them installed. They gave complete service including installing new tires, wheel balancing and alignment. Very Professional.</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <img src="https://1stopautoshop.ca/wp-content/uploads/2023/12/gfer.jpg" alt="Kamalpreet">
+                            </div>
+                            <div class="author-info">
+                                <h4>Kamalpreet</h4>
+                                <span class="author-role">Self-Employed</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="testimonial-text">
+                            <p>This is some dummy copy. You're not really supposed to read this dummy copy, it is just a place holder for people who need some type to visualize the design.</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <img src="https://1stopautoshop.ca/wp-content/uploads/2023/12/agg.webp" alt="Damanjit Singh">
+                            </div>
+                            <div class="author-info">
+                                <h4>Damanjit Singh</h4>
+                                <span class="author-role">Entrepreneur</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Offer Section -->
+    <section class="special-offer">
+        <div class="container">
+            <h2>December Special Offer</h2>
+            <p>Free vehicle inspection with any paid service*</p>
+            <div class="offer-timer">Offer expires December 31, 2023</div>
+            <a href="https://1stopautoshop.ca/?page_id=14" class="btn btn-outline">Book Your Appointment</a>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Need Professional Auto Repair Services?</h2>
+            <p>Call us today to get a quote for your car repair or collision needs. Our team of experts is ready to help you get back on the road safely.</p>
+            <span class="highlight">905 230 3131</span>
+            <a href="https://1stopautoshop.ca/?page_id=14" class="btn">Contact Us Today</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>1 Stop Auto Shop</h3>
+                    <p>Quality auto repair and collision services in Brampton, Ontario. We're committed to providing the best service at competitive prices.</p>
+                </div>
+                
+                <div class="footer-column footer-contact">
+                    <h3>Find Us</h3>
+                    <p>32 Rutherford Road S, Brampton L6W 3J1 Ontario</p>
+                    <p>Phone: 905 230 3131</p>
+                    <p>Email: info@1stopautoshop.ca</p>
+                </div>
+                
+                <div class="footer-column footer-hours">
+                    <h3>Business Hours</h3>
+                    <p>Monday to Friday: 9 AM to 6 PM</p>
+                    <p>Saturday: 9 AM to 3 PM</p>
+                    <p>Sunday: Closed</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 1 Stop Auto Shop. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dynamic Background Rotation
+        const bgSlides = document.querySelectorAll('.bg-slide');
+        let currentSlide = 0;
+        
+        function rotateBackground() {
+            // Remove active class from current slide
+            bgSlides[currentSlide].classList.remove('active');
+            
+            // Move to next slide
+            currentSlide = (currentSlide + 1) % bgSlides.length;
+            
+            // Add active class to next slide
+            bgSlides[currentSlide].classList.add('active');
+        }
+        
+        // Start the background rotation (change every 6 seconds)
+        setInterval(rotateBackground, 6000);
+        
+        // Mobile menu toggle
+        document.querySelector('.mobile-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.querySelector('.nav-menu').classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
